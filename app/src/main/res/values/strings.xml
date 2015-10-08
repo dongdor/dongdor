@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">NHTTestApp</string>
+    <string name="add_page">add_page</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_fragactivity">Fragactivity</string>
+
+    <string-array name="counter_excute_type">
+        <item> 이전 기능 이후 바로 실행</item>
+        <item> 이전 기능과 동시에 실행</item>
+        <item> 눌릴때 </item>
+    </string-array>
+
+    <string-array name="counter_end_type">
+        <item> 증감 이후</item>
+        <item> 설정한 숫자 이후</item>
+    </string-array>
+
+    <string-array name="checker_end_type">
+        <item> 바뀔때 마다</item>
+        <item> 체크 했을 경우</item>
+        <item> 체크취소 했을 경우</item>
+    </string-array>
+</resources>

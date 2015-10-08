@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/item_subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Page:"/>
+
+        <TextView
+            android:id="@+id/item_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="80sp" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:gravity="bottom"
+        android:layout_alignParentBottom="true"
+        android:padding="15dp"
+        android:background="#3498DB">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/action1"
+            android:onClick="func1"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:src="@drawable/timer"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/action2"
+            android:onClick="func2"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:src="@drawable/info"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action3"
+            android:onClick="func3"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:src="@drawable/alarm"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/action4"
+            android:onClick="func4"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:src="@drawable/checker"/>
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Button"
+            android:id="@+id/action5"
+            android:onClick="func5"
+            android:layout_gravity="bottom"
+            android:layout_weight="1"
+            android:background="#00FFFFFF"
+            android:src="@drawable/counter"/>
+    </LinearLayout>
+
+</RelativeLayout>
