@@ -2,19 +2,61 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.administrator.ourapplication" >
 
+
+    <!-- [START msg_permission] -->
+    <permission android:name="com.example.gcm.permission.C2D_MESSAGE"
+        android:protectionLevel="signature" />
+    <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
+    <!-- [END msg_permission] -->
+
+    <!-- [START gcm_receive_permission] -->
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- [END gcm_receive_permission] -->
+
+    <!-- GCM을 받으려면 구글 계정 필요 -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <!-- 네트워크 접속 권한 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+
     <application
+        android:name=".ApplicationClass"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_clicky"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
+
+        <!-- [START gcm_receiver] -->
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:exported="true"
+            android:permission="com.google.android.c2dm.permission.SEND">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+                <category android:name="com.example.administrator.ourapplication" />
+            </intent-filter>
+        </receiver>
+        <!-- [END gcm_receiver] -->
+
         <activity
-            android:name=".MainActivity"
+            android:name=".ButtonList"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <!--LAUNCHER 가 홈 을 나타내는 것이다.  -->
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <!--기능리스트-->
+        <activity
+            android:name=".MainActivity"
+            android:label="Our Application"
+            android:exported="false"
+            >
         </activity>
         <activity
             android:name=".truefalse"
@@ -47,12 +89,50 @@
             android:exported="false"
             >
         </activity>
+
+        <!-- [START 로그인 관련 액티비티] -->
+        <activity android:name=".Entrance" />
+        <activity android:name=".UserRegistration" />
+        <!-- [END 로그인 관련 액티비티] -->
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <service android:name=".CountService">
             <intent-filter>
                 <action android:name="com.superdroid.service.CountService"/>
             </intent-filter>
 
         </service>
+
+        <!-- [START gcm_listener_service] -->
+        <service
+            android:name="com.example.administrator.ourapplication.MyGcmListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+            </intent-filter>
+        </service>
+        <!-- [END gcm_listener_service] -->
+
+        <!-- [START instanceId_listener_service] -->
+        <service
+            android:name="com.example.administrator.ourapplication.MyInstanceIDListenerService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+        <!-- [END instanceId_listener_service] -->
+
+        <!-- [START gcm_registration_service] -->
+        <service
+            android:name="com.example.administrator.ourapplication.RegistrationIntentService"
+            android:exported="false">
+        </service>
+        <!-- [END gcm_registration_service] -->
+
     </application>
 
 </manifest>
