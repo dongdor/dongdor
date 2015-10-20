@@ -6,5 +6,5 @@ import com.example.administrator.ourapplication.ICountServiceCallback;
 
 interface ICountService
 {
-   int void getCurCountNumber();
+   //int void getCurCountNumber();
 }
