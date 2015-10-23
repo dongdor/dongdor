@@ -95,6 +95,7 @@ public class Entrance extends Activity {
 
                     // 통신 실행
                     if (new HttpClient().setActControl(Entrance.this).sendData("user/login", jobj)) {
+                        Log.d(TAG, app.GCM_TOKEN);
                         Intent intent = new Intent(Entrance.this, ButtonList.class);
                         intent.addFlags(intent.FLAG_ACTIVITY_CLEAR_TASK);
                         intent.addFlags(intent.FLAG_ACTIVITY_NEW_TASK);

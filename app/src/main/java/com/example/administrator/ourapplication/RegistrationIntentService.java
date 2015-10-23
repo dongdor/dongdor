@@ -47,6 +47,8 @@ public class RegistrationIntentService extends IntentService {
                 // Instance ID에 해당하는 토큰을 생성하여 가져온다.
                 token = instanceID.getToken(default_senderId, scope, null);
 
+                ApplicationClass app = app = (ApplicationClass)getApplicationContext();
+                app.GCM_TOKEN = token;
                 Log.i(TAG, "GCM Registration Token: " + token);
             }
         } catch (IOException e) {

@@ -17,6 +17,9 @@ public class ApplicationClass extends Application {
     // 세션 토큰
     public boolean SESSION_TOKEN;
 
+    // GCM 토큰
+    public String GCM_TOKEN;
+
     @Override
     public void onCreate() {
         // 자동로그인 설정
